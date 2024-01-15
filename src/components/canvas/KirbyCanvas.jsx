@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 import { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
@@ -9,10 +10,12 @@ const Kirby = () => {
   
   return (
     <mesh>
-      <hemisphereLight intensity={0.15} groundColor="black" />
-      <pointLight intensity={1}/>
+      {/* <hemisphereLight intensity={0.15} groundColor="black" /> */}
+      {/* <pointLight intensity={1}/> */}
+      {/* <spotLight position={[-20, 50, 10]}/> */}
       <primitive 
         object={kirby.scene}
+        rotation={[-0.2, 0, 0]}
       />
     </mesh>
   )
@@ -33,7 +36,7 @@ const KirbyCanvas = () => {
         />
       <Kirby/>
       </Suspense>
-      <Preload all />
+      <Preload all/>
     </Canvas>
   )
 }

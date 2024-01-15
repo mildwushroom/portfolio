@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 import KirbyCanvas from './canvas/KirbyCanvas';
 // import the canvas for whatever 3d thing you're bringing in 
 

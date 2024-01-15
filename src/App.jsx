@@ -7,7 +7,7 @@ const App = () => {
     <BrowserRouter>
       <div className="Card">
         <div>
-          <h1>Hi there! I am Cristina.</h1>
+          <h1>Hi! Im Cristina.</h1>
           {/* pick a NavBar then follow up and watch video */}
           <Hero/>
         </div>
