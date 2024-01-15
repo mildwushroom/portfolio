@@ -1,5 +1,5 @@
 import { BrowserRouter } from "react-router-dom";
-import Hero from './components';
+import Hero from './components/Hero.jsx';
 // import components: About, contact, experience, feedbacks, hero, navbar, tech, works, starsCanvas
 
 const App = () => {
