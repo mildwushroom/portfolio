@@ -17,7 +17,6 @@ const Kirby = () => {
     </mesh>
   )
 };
-
 const KirbyCanvas = () => {
   return (
     <Canvas
@@ -38,5 +37,4 @@ const KirbyCanvas = () => {
     </Canvas>
   )
 }
-
-export default Kirby;
+export default KirbyCanvas;
