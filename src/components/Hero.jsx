@@ -4,7 +4,7 @@ import KirbyCanvas from './canvas/KirbyCanvas';
 
 const Hero = () => {
   return (
-    <section className='Card'>
+    <section id='kirby-container'>
       <KirbyCanvas/>
     </section>
   )

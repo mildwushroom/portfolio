@@ -6,10 +6,10 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className="Card">
-        <div>
-          <h1>Hi! Im Cristina.</h1>
-          {/* pick a NavBar then follow up and watch video */}
           <Hero/>
+          <h1>Hi! Im Cristina.</h1>
+        <div>
+          {/* pick a NavBar then follow up and watch video */}
         </div>
         {/* render the rest of the sections */}
         <div>

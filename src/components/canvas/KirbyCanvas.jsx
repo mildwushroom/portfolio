@@ -23,7 +23,7 @@ const Kirby = () => {
     // The offset is between 0 and 1, you can apply it to your models any way you like
     const offset = 1 - scroll.offset
     // action.time = THREE.MathUtils.damp(action.time, (action.getClip().duration / 2) * offset, 100, delta)
-    state.camera.position.set(Math.sin(offset) * -10, Math.atan(offset * Math.PI * 2) * 5, Math.cos((offset * Math.PI) / 3) * -10)
+    // state.camera.position.set(Math.sin(offset) * -10, Math.atan(offset * Math.PI * 2) * 5, Math.cos((offset * Math.PI) / 3) * -10)
     state.camera.lookAt(0, 0, 0)
   })
 
@@ -38,6 +38,7 @@ const Kirby = () => {
         object={kirby.scene}
         // Whatever I'm doing above, it's overriding rotation
         rotation={[-0.2, 0, 0]}
+        scale={[3, 3, 3]}
       />
     </mesh>
   )
@@ -49,13 +50,13 @@ const KirbyCanvas = () => {
     <Canvas
       frameloop="demand"
       shadows
-      camera={{position: [20, 3, 5], fov: 25}}
+      camera={{position: [5000, 1000, -1000], fov: 1}}
       gl={{ preserveDrawingBuffer: true}}
     >
     <Suspense fallback={<CanvasLoader/>}>
       <OrbitControls
         autoRotate={true}
-        autoRotateSpeed={20}
+        autoRotateSpeed={12}
         enableZoom={false}
         maxPolarAngle={Math.PI / 2}
         minPolarAngle={Math.PI / 2}
