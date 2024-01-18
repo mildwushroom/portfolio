@@ -7,6 +7,9 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #7d95da;
+  background-image: radial-gradient(circle at 50% 40%, #a493fc, #7d95da, #7d96da, #9f93fc 110%);
+
+  overflow: hidden;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -15,19 +18,39 @@
 }
 
 
+/* Apply hover effect to all text elements */
+body, h1, p, span, a {
+  transition: font-size 0.1s ease-in-out;
+}
+
 body {
   margin: 0;
   display: flex;
   place-items: center;
   justify-content: center;
-  min-width: 320px;
-  min-height: 100vh;
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  margin-top: 5px;
+  margin-bottom: 0;
 }
+
+/* body:hover h1 {
+  font-size: 3.5em; 
+} */
+
+p {
+  font-weight: 500;
+  font-size: 1.2em;
+  margin: 0;
+}
+
+/* body:hover p {
+  font-size: 1.5em; 
+} */
+
 
 button {
   border-radius: 8px;
