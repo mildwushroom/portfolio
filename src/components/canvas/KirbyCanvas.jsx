@@ -60,9 +60,9 @@ const KirbyCanvas = () => {
         maxPolarAngle={Math.PI / 2}
         minPolarAngle={Math.PI / 2}
       />
-      <ScrollControls pages={3} damping={0.25}>
+      {/* <ScrollControls pages={3} damping={0.25}> */}
         <Kirby/>
-      </ScrollControls>
+      {/* </ScrollControls> */}
     </Suspense>
     {/* Gets everything to load first */}
     <Preload all/> 
