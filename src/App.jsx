@@ -21,7 +21,7 @@ const App = () => {
     return { hours, minutes, seconds };
   };
 
-  const expirationTime = new Date('2024-01-18T23:59:00'); 
+  const expirationTime = new Date('2024-01-22T23:59:00');
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(expirationTime));
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const App = () => {
 
     return () => clearInterval(timer);
   }, [expirationTime]);
-  
+
   return (
     <BrowserRouter>
       <div className="Card">
