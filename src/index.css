@@ -7,9 +7,11 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #7d95da;
-  background-image: radial-gradient(circle at 50% 40%, #a493fc, #7d95da, #7d96da, #9f93fc 110%);
+  background-image: radial-gradient(circle at 50% 40%, #a493fc, #7d95da, #7d96da, #b893fc 110%);
+  background-repeat: no-repeat; /* Prevent background repetition */
 
-  overflow: hidden;
+
+  /* overflow: hidden; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -21,6 +23,12 @@
 /* Apply hover effect to all text elements */
 body, h1, p, span, a {
   transition: font-size 0.1s ease-in-out;
+}
+
+@media only screen and (max-width: 768px) {
+  body {
+    background-size: cover; /* or contain, depending on your preference */
+  }
 }
 
 body {

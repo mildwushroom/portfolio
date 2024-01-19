@@ -8,57 +8,27 @@ import CanvasLoader from '../Loader';
 
 const Flower = () => {
 
-  // Our scene, the flower
-  // const flower = useGLTF('/lotus-flower/scene.gltf');
-
-  // Scrolling and animation settings
-  const scroll = useScroll();
-  const { scene, nodes, animations } = useGLTF('/lotus-flower/scene.gltf');
-  console.log('animations', animations)
-  console.log('clip', animations[0])
-  const { actions } = useAnimations(animations, scene);
-  console.log('actions[0]', actions[0])
-  // actions.clips[0]?
+  const { scene, animations } = useGLTF('/lotus-flower/scene.gltf');
+  const mixer = new THREE.AnimationMixer(scene);
 
   useEffect(() => {
-    // if isScrolling
-    const clip = animations[0];
+    // Assuming there's only one animation clip
+    const animationClip = animations[0];
+    const action = mixer.clipAction(animationClip);
 
+    // Start playing the animation
+    action.play();
 
-    // if (scroll.isScrolling) {
-    //   console.log('scrolling!')
-    // } else {
-    //   console.log('not scrolling!')
-    // }
-      // play take 1
-    // else
-      // stop take 1
-      // actions[0].play();
-  }, [scroll.isScrolling, actions]) // Eventually you should add state for isScrolling
+    // Clean up when the component unmounts
+    return () => {
+      action.stop();
+    };
+  }, [mixer, animations]);
 
-  // const { scrollYProgress } = useScroll({
-  //   target: scene
-  //   offset: ['start end', 'end start']
-  // })
-
-
-  // Figure out what actions is supposed to look like bc it's causing errors
-  const fromUseAn = useAnimations(animations, scene);
-  // console.log('useAnimations:', fromUseAn);
-  // console.log('actions:', fromUseAn.actions);
-  // console.log('available animations:', Object.keys(fromUseAn.actions || {}));
-  console.log('actions!', actions)
-
-  useLayoutEffect(() => Object.values(nodes).forEach((node) => (node.receiveShadow = node.castShadow = true)));
-  // useEffect(() => void (actions['Take 001'].play().paused = true), [actions])
+  // Update the animation on each frame
   useFrame((state, delta) => {
-    // const action = actions['Take 001']
-    // The offset is between 0 and 1, you can apply it to your models any way you like
-    const offset = 1 - scroll.offset
-    // action.time = THREE.MathUtils.damp(action.time, (action.getClip().duration / 2) * offset, 100, delta)
-    // state.camera.position.set(Math.sin(offset) * -10, Math.atan(offset * Math.PI * 2) * 5, Math.cos((offset * Math.PI) / 3) * -10)
-    state.camera.lookAt(0, 0, 0)
-  })
+    mixer.update(delta);
+  });
 
   return (
     <mesh>
@@ -77,6 +47,8 @@ const Flower = () => {
 };
 
 const FlowerCanvas = () => {
+  const scroll = useScroll();
+
   return (
     <Canvas
       frameloop="demand"
@@ -92,7 +64,7 @@ const FlowerCanvas = () => {
           // maxPolarAngle={Math.PI / 2}
           // minPolarAngle={Math.PI / 2}
         />
-        <ScrollControls pages={3} damping={0.25}>
+        <ScrollControls pages={3} damping={0.25} {...scroll}>
           <Flower/>
         </ScrollControls>
       </Suspense>
