@@ -27,7 +27,8 @@ body, h1, p, span, a {
 
 @media only screen and (max-width: 768px) {
   body {
-    background-size: cover; /* or contain, depending on your preference */
+    background-size: 100%; 
+    background-size: contain;
   }
 }
 
@@ -36,6 +37,8 @@ body {
   display: flex;
   place-items: center;
   justify-content: center;
+  background-attachment: fixed;
+  background-position: 50% 40%;
 }
 
 h1 {
@@ -45,20 +48,12 @@ h1 {
   margin-bottom: 0;
 }
 
-/* body:hover h1 {
-  font-size: 3.5em; 
-} */
 
 p {
   font-weight: 500;
   font-size: 1.2em;
   margin: 0;
 }
-
-/* body:hover p {
-  font-size: 1.5em; 
-} */
-
 
 button {
   border-radius: 8px;
@@ -81,7 +76,18 @@ button {
 }
 
 #kirby-container {
+  /* max-width: 1000px; */
+  max-width: 1000px;
   height: 500px;
-  width: 1000px;
+  width: auto;
+  /* width: 1000px; */
+  /* height: auto; */
+  /* height: 50vh; */
+  /* width: 100%; */
   /* overflow: visible; */
 }
+
+/* .canvas {
+  width: 100%;
+  height: auto;
+} */
