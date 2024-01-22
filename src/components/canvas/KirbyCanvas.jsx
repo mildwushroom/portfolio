@@ -5,7 +5,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Preload, ScrollControls, useAnimations, useGLTF, useScroll } from "@react-three/drei";
 import CanvasLoader from '../Loader';
 
-const Kirby = () => {
+const Kirby = ({ isMobile }) => {
   
   // const scroll = useScroll();
   const kirby = useGLTF('/kirby/scene.gltf');
@@ -37,13 +37,33 @@ const Kirby = () => {
       <primitive 
         object={kirby.scene}
         rotation={[-0.2, 0, 0]}
-        scale={[3, 3, 3]}
+        scale={isMobile ? 2 : 3}
       />
     </mesh>
   )
 };
 
 const KirbyCanvas = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Handle whether or not the user is on mobile
+  useEffect(() => {
+    // Create mediaQuery list object
+    const mediaQuery = window.matchMedia('(max-width: 500px)');
+
+    // Set state based on result of mediaQuery
+    setIsMobile(mediaQuery.matches);
+
+    // A function that is called whenever mediaQuery changes
+    const handleMediaQueryChange = (event) => {
+      setIsMobile(event.matches);
+    };
+
+    mediaQuery.addEventListener('change', handleMediaQueryChange);
+
+    // Remove event listener when the component unmounts
+    return () => mediaQuery.removeEventListener('change', handleMediaQueryChange);
+  }, [])
 
   return (
     <Canvas
@@ -61,7 +81,7 @@ const KirbyCanvas = () => {
         minPolarAngle={Math.PI / 2}
       />
       {/* <ScrollControls pages={3} damping={0.25}> */}
-        <Kirby/>
+        <Kirby isMobile={isMobile} />
       {/* </ScrollControls> */}
     </Suspense>
     {/* Gets everything to load first */}
