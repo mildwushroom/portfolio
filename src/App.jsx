@@ -3,6 +3,7 @@ import Hero from './components/Hero.jsx';
 import { useEffect, useState } from "react";
 import About from "./components/About.jsx";
 import Experience from "./components/Experience.jsx";
+import Tech from './components/Tech.jsx'
 // import components: About, contact, experience, feedbacks, hero, navbar, tech, works, starsCanvas
 
 const App = () => {
@@ -48,6 +49,7 @@ const App = () => {
         {/* render the rest of the sections */}
           <About/>
           <Experience/>
+          <Tech/>
         <div>
           {/* render contact */}
           {/* render starscanvas */}

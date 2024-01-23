@@ -2,7 +2,7 @@
 // import * as THREE from 'three';
 import { Suspense, useEffect, useLayoutEffect, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, Preload, ScrollControls, useAnimations, useGLTF, useScroll } from "@react-three/drei";
+import { Float, OrbitControls, Preload, ScrollControls, useAnimations, useGLTF, useScroll } from "@react-three/drei";
 import CanvasLoader from '../Loader';
 
 const Kirby = ({ isMobile }) => {
@@ -30,16 +30,18 @@ const Kirby = ({ isMobile }) => {
 
   
   return (
-    <mesh>
-      {/* <hemisphereLight intensity={0.15} groundColor="black" /> */}
-      {/* <pointLight intensity={1}/> */}
-      {/* <spotLight position={[-20, 50, 10]}/> */}
-      <primitive 
-        object={kirby.scene}
-        rotation={[-0.2, 0, 0]}
-        scale={isMobile ? 2 : 3}
-      />
-    </mesh>
+    <Float speed={5} floatIntensity={2}>
+      <mesh>
+        {/* <hemisphereLight intensity={0.15} groundColor="black" /> */}
+        {/* <pointLight intensity={1}/> */}
+        {/* <spotLight position={[-20, 50, 10]}/> */}
+        <primitive 
+          object={kirby.scene}
+          rotation={[-0.2, 0, 0]}
+          scale={isMobile ? 2 : 3}
+          />
+      </mesh>
+    </Float>
   )
 };
 
@@ -75,7 +77,7 @@ const KirbyCanvas = () => {
     <Suspense fallback={<CanvasLoader/>}>
       <OrbitControls
         autoRotate={true}
-        autoRotateSpeed={12}
+        autoRotateSpeed={10}
         enableZoom={false}
         maxPolarAngle={Math.PI / 2}
         minPolarAngle={Math.PI / 2}
