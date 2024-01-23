@@ -40,8 +40,8 @@ const App = () => {
       <div className="Card">
           <Hero/>
           <h1>Hi! I&#39;m Cristina.</h1>
-          <p>Under construction<span role="img" aria-label="rocket"> 🚀 </span>{`${timeLeft.hours}h : ${timeLeft.minutes}m : ${timeLeft.seconds}s `}</p>
-          <i>(Hint: Interact with Kirby)</i>
+          <p>Under construction<span role="img" aria-label="rocket"> 🚀 </span>Expect changes frequently!</p>
+          {/* <i>(Hint: Interact with Kirby)</i> */}
 
         <div>
           {/* pick a NavBar then follow up and watch video */}

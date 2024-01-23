@@ -16,7 +16,7 @@
   background-repeat: no-repeat; /* Prevent background repetition */
   /* background-color: #02091f; */
   /* background-image: linear-gradient(#02091f, #122154); */
-  background-color: #7d95da;
+  background-color: #849adc;
 
 
   /* overflow: hidden; */
@@ -81,6 +81,7 @@ button {
   align-items: center;
   justify-content: center;
   max-width: 1000px;
+  /* margin-top: 1em; */
   /* background-color: yellow; */
 }
 
