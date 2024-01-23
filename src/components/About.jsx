@@ -1,13 +1,15 @@
 import React from 'react';
 import { motion } from "framer-motion";
-import { fadeIn, textVariant } from '../utils/motion'
+import { fadeIn, textVariant } from '../utils/motion';
+import { styles } from '../styles';
+import { SectionWrapper } from '../hoc';
 
 const About = () => {
   return (
     <div className='Card'>
 
     <motion.div variants={textVariant()}>
-      <h1>Overview.</h1>
+      <h1 className={styles.sectionHeadText}>Overview.</h1>
       <motion.p 
         variants={fadeIn('', '', 0.1, 1)}
         // className="mt-4 text-[17px] max-w-3xl leading-[30px]"
@@ -19,4 +21,4 @@ const About = () => {
   )
 }
 
-export default About;
+export default SectionWrapper(About, "about");
