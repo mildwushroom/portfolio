@@ -8,7 +8,7 @@ const About = () => {
   return (
     <div className='Card'>
       <motion.div variants={textVariant()} style={{ marginTop: '2em', marginBottom: '2em' }}>
-        <h1 className={styles.sectionHeadText}>Overview.</h1>
+        <h1 className={styles.sectionHeadText}>About me.</h1>
         <motion.p 
           variants={fadeIn('', '', 0.1, 1)}
           // className="mt-4 text-[17px] max-w-3xl leading-[30px]"

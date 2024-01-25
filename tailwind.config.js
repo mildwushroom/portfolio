@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-
 export default {
   content: ["./src/**/*.{js,jsx}"],
   mode: "jit",
@@ -19,7 +18,10 @@ export default {
       screens: {
         xs: "450px",
       },
+      backgroundImage: {
+        "hero-pattern": "url('/src/assets/herobg.png')",
+      },
     },
   },
   plugins: [],
-}
+};

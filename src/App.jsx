@@ -4,6 +4,10 @@ import { useEffect, useState } from "react";
 import About from "./components/About.jsx";
 import Experience from "./components/Experience.jsx";
 import Tech from './components/Tech.jsx'
+import Footer from './components/Footer.jsx'
+import Contact from "./components/Contact.jsx";
+import { Stars } from "@react-three/drei";
+import StarsCanvas from "./components/canvas/StarsCanvas.jsx";
 // import components: About, contact, experience, feedbacks, hero, navbar, tech, works, starsCanvas
 
 const App = () => {
@@ -37,23 +41,20 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <div className="Card">
+      <div className='relative z-0 bg-primary'>
+        <div className='bg-hero-pattern bg-cover bg-no-repeat bg-center'>
           <Hero/>
           <h1>Hi! I&#39;m Cristina.</h1>
           <p>Under construction<span role="img" aria-label="rocket"> 🚀 </span>Expect changes frequently!</p>
-          {/* <i>(Hint: Interact with Kirby)</i> */}
-
-        <div>
-          {/* pick a NavBar then follow up and watch video */}
         </div>
-        {/* render the rest of the sections */}
-          <About/>
-          <Experience/>
-          <Tech/>
-        <div>
-          {/* render contact */}
-          {/* render starscanvas */}
+        <About/>
+        <Experience/>
+        <Tech/>
+        <div className="relative z-0">
+          <Contact/>
+          <StarsCanvas/>
         </div>
+          <Footer/>
       </div>
     </BrowserRouter>
   )

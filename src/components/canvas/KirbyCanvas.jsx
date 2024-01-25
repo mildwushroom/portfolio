@@ -7,39 +7,15 @@ import CanvasLoader from '../Loader';
 
 const Kirby = ({ isMobile }) => {
   
-  // const scroll = useScroll();
-  const kirby = useGLTF('/kirby/scene.gltf');
-  // const { scene, nodes, animations } = useGLTF('/kirby/scene.gltf');
-  // const { actions } = useAnimations(animations, scene);
-
-  // I think it's not working bc kirby doesn't have animations, but if it did...
-  // console.log('Actions:', actions); // Log actions to see its value
-
-
-  // useLayoutEffect(() => Object.values(nodes).forEach((node) => (node.receiveShadow = node.castShadow = true)));
-  // useEffect(() => void (actions['Take 001'].play().paused = true), [actions])
-  // useFrame((state, delta) => {
-  //   // const action = actions['Take 001']
-  //   // The offset is between 0 and 1, you can apply it to your models any way you like
-  //   // const offset = 1 - scroll.offset
-  //   // action.time = THREE.MathUtils.damp(action.time, (action.getClip().duration / 2) * offset, 100, delta)
-  //   // state.camera.position.set(Math.sin(offset) * -10, Math.atan(offset * Math.PI * 2) * 5, Math.cos((offset * Math.PI) / 3) * -10)
-  //   state.camera.lookAt(0, 0, 0)
-  // })
-
-
-  
+  const kirby = useGLTF('/kirby/scene.gltf');  
   return (
     <Float speed={5} floatIntensity={2}>
       <mesh>
-        {/* <hemisphereLight intensity={0.15} groundColor="black" /> */}
-        {/* <pointLight intensity={1}/> */}
-        {/* <spotLight position={[-20, 50, 10]}/> */}
         <primitive 
           object={kirby.scene}
           rotation={[-0.2, 0, 0]}
           scale={isMobile ? 2 : 3}
-          />
+        />
       </mesh>
     </Float>
   )
@@ -82,11 +58,8 @@ const KirbyCanvas = () => {
         maxPolarAngle={Math.PI / 2}
         minPolarAngle={Math.PI / 2}
       />
-      {/* <ScrollControls pages={3} damping={0.25}> */}
-        <Kirby isMobile={isMobile} />
-      {/* </ScrollControls> */}
+      <Kirby isMobile={isMobile} />
     </Suspense>
-    {/* Gets everything to load first */}
     <Preload all/> 
     </Canvas>
   )

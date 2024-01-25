@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -17,6 +17,7 @@
   /* background-color: #02091f; */
   /* background-image: linear-gradient(#02091f, #122154); */
   background-color: #849adc;
+  background-color: black;
 
 
   /* overflow: hidden; */
@@ -121,11 +122,11 @@ button {
   width: 120px;
 }
 
-/* .canvas {
-  width: 100%;
-  height: auto;
-} */
-
+#contact-section {
+  padding-top: 50px;
+  /* background-image: linear-gradient(#839bdc, #050815); */
+  background-color: #050815;
+}
 
 
 * {
