@@ -5,10 +5,11 @@ import { motion } from 'framer-motion';
 import 'react-vertical-timeline-component/style.min.css';
 import { styles } from '../styles'
 import { SectionWrapper } from '../hoc';
-import { textVariant } from '../utils/motion';
+import { fadeIn, textVariant } from '../utils/motion';
 import kubernetes from '../assets/kubernetes-logo.png';
 import gap from '../assets/br-logo.png';
 import fulbright from '../assets/fulbright-logo.png'
+import { Tilt } from 'react-tilt';
 
 const experiences = [
     {
@@ -23,7 +24,7 @@ const experiences = [
       ],
     },
     {
-        title: "Website Admin, Teacher, Scholar",
+        title: "Website Admin, English Teacher",
         company_name: "U.S. Fulbright International Grant Program",
         icon: fulbright,
         iconBg: "white",
@@ -48,8 +49,8 @@ const experiences = [
 
 const ExperienceCard = ({ experience }) => (
   <VerticalTimelineElement
-    contentStyle={{ background: '#232f5b', color: '#fff' }}
-    contentArrowStyle={{ borderRight: '7px solid #232f5b' }}
+    contentStyle={{ background: '#070917', color: '#070917', margin: 0, padding: 0 }}
+    contentArrowStyle={{ borderRight: '7px solid #00cea8' }}
     // date={experience.date}
     iconStyle={{ background: experience.iconBg }}
     icon={
@@ -62,8 +63,11 @@ const ExperienceCard = ({ experience }) => (
       </div>
     }
   >
-    <div className='flex justify-center items-center w-full h-full'>
-      <h3 className='timeline-header'>
+    <div className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card'>
+      <div className='bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px]'>
+  
+    <div className='flex flex-col justify-center items-center w-full h-full'>
+      <h3 className='text-white text-[24px] font-bold'>
         {experience.title}
       </h3>
       <p className='text-secondary text-[16px] font-semibold' style={{ margin: 0 }}>
@@ -81,7 +85,10 @@ const ExperienceCard = ({ experience }) => (
         </li>
       ))}
     </ul>
-    <i>{experience.date}</i>
+    <p className='italic mt-5 text-secondary text-[16px]'>{experience.date}</p>
+
+    </div>
+    </div>
   </VerticalTimelineElement>
 );
 

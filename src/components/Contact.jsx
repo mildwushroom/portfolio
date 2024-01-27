@@ -1,28 +1,74 @@
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-// import emailjs from '@emailjs/browser';
+import emailjs from '@emailjs/browser';
 
 import { styles } from '../styles';
 import TakisCanvas from './canvas/TakisCanvas';
 import { SectionWrapper } from '../hoc';
 import { slideIn } from '../utils/motion';
 
+// service id: service_nqckmzc
+// template id: template_o49jsjc
+// public key: ZzIh9PoWUTtq56-ZV
+
 const Contact = () => {
   const formRef = useRef();
   const [form, setForm] = useState({
     name: '',
     email: '',
-    message: ''
+    message: '',
   });
 
   const [loading, setLoading] = useState(false);
 
   const handleChange = (event) => {
+    // const { target } = event;
+    const { name, value } = event.target;
 
+    setForm({
+      ...form,
+      [name]: value,
+    });
   };
 
   const handleSubmit = (event) => {
+    event.preventDefault();
+    setLoading(true);
 
+    emailjs
+      .send(
+        'service_nqckmzc',
+        'template_o49jsjc',
+        // import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+        // import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: form.name,
+          to_name: "Cristina Flores",
+          from_email: form.email,
+          to_email: "cristiflores0@gmail.com",
+          message: form.message,
+        },
+        'ZzIh9PoWUTtq56-ZV'
+        // import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+      )
+      .then(
+        () => {
+          setLoading(false);
+          alert("Thanks! I'll get back to you as soon as possible.");
+
+          setForm({
+            name: "",
+            email: "",
+            message: "",
+          });
+        },
+        (error) => {
+          setLoading(false);
+          console.error(error);
+
+          alert("Uh oh, something went wrong. Please try again!");
+        }
+      );
   };
 
   return (
@@ -53,7 +99,7 @@ const Contact = () => {
             <span className='text-white font-medium mb-4'>Your email</span>
             <input
               type='text'
-              name='name'
+              name='email'
               value={form.email}
               onChange={handleChange}
               placeholder=''
@@ -65,7 +111,7 @@ const Contact = () => {
             <textarea
               rows='7'
               type='text'
-              name='name'
+              name='message'
               value={form.message}
               onChange={handleChange}
               placeholder=''

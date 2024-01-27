@@ -14,7 +14,7 @@ const Kirby = ({ isMobile }) => {
         <primitive 
           object={kirby.scene}
           rotation={[-0.2, 0, 0]}
-          scale={isMobile ? 2 : 3}
+          scale={isMobile ? 0.5 : 1}
         />
       </mesh>
     </Float>

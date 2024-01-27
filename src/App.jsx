@@ -44,8 +44,6 @@ const App = () => {
       <div className='relative z-0 bg-primary'>
         <div className='bg-hero-pattern bg-cover bg-no-repeat bg-center'>
           <Hero/>
-          <h1>Hi! I&#39;m Cristina.</h1>
-          <p>Under construction<span role="img" aria-label="rocket"> 🚀 </span>Expect changes frequently!</p>
         </div>
         <About/>
         <Experience/>
@@ -54,7 +52,7 @@ const App = () => {
           <Contact/>
           <StarsCanvas/>
         </div>
-          <Footer/>
+          {/* <Footer/> */}
       </div>
     </BrowserRouter>
   )

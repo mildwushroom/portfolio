@@ -13,7 +13,7 @@ const Takis = () => {
       <directionalLight position={[0, 0, 0.05]} />
       <primitive
         object={takis.scene}
-        scale={2.5}
+        scale={2}
         position-y={0}
         rotation-y={0}
       />
